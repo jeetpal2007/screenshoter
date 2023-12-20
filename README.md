@@ -22,7 +22,7 @@ Follow these steps to set up and use the tool on your local machine.
 
 1. Clone the repository :
 
-`git clonehttps://github.com/new-user777/screenshot-taker.git`
+`git clone https://github.com/jeetpal2007/screenshoter.giy `
 
 2. Install the required packages using pip:
    
@@ -36,7 +36,7 @@ Follow these steps to set up and use the tool on your local machine.
 
 2. Run the script:
    
-`python3 screen-taker.py'
+`python3 screenshoter.py'
 
 3. Follow the on-screen instructions to choose between capturing screenshots for a single subdomain or multiple subdomains.
 
