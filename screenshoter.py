@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.keys import Keys
 import os
 
 def capture_screenshot(subdomain, output_path=None):
@@ -54,26 +55,28 @@ def capture_screenshots(option, subdomain=None, subdomain_list=None, output_path
     return screenshot_filenames
 
 if __name__ == "__main__":
-    print("""
-         Press 1 for a single domain
-         Press 2 for a list of subdomains
-    make sure you have entered the path correctly
-    """)
-    
-    option = int(input("[+] Enter the option: "))
-    
-    if option == 1:
-        subdomain = input("[+] Enter the subdomain: ")
-        output_path = input("[+] Enter the path to save the screenshot: ")
-        capture_screenshots(option, subdomain=subdomain, output_path=output_path)
-    
-    elif option == 2:
-        subdomain_list_path = input("[+] Enter the file path: ")
-        subdomains = open(subdomain_list_path, "r").read().splitlines()
-        output_path = input("[+] Enter the path to save the screenshots: ")
-        capture_screenshots(option, subdomain_list=subdomains, output_path=output_path)
-    
-    else:
-        print("Wrong Input")
+    try:
+        print("""
+             Press 1 for a single domain
+             Press 2 for a list of subdomains
+        make sure you have entered the path correctly
+        """)
 
-    print("Thank you for using it")
+        option = int(input("[+] Enter the option: "))
+
+        if option == 1:
+            subdomain = input("[+] Enter the subdomain: ")
+            output_path = input("[+] Enter the path to save the screenshot: ")
+            capture_screenshots(option, subdomain=subdomain, output_path=output_path)
+
+        elif option == 2:
+            subdomain_list_path = input("[+] Enter the file path: ")
+            subdomains = open(subdomain_list_path, "r").read().splitlines()
+            output_path = input("[+] Enter the path to save the screenshots: ")
+            capture_screenshots(option, subdomain_list=subdomains, output_path=output_path)
+
+        else:
+            print("Wrong Input")
+
+    except KeyboardInterrupt:
+        print("\nScript interrupted.Thank you for using it")
